@@ -5,3 +5,11 @@ get '/user/:id' do
 
   erb :user
 end
+
+
+post '/' do
+  @user = User.authenticate(params[:login][:email], params[:login][:password])
+  session[:id] = @user.id
+
+  redirect to('/')
+end

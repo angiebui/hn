@@ -3,8 +3,6 @@
   <h2><%= @post.title %></h2>
   <h4><a href="/user/<%= @post.user.id %>"><%= @post.user.name %></a> <small><%= date(@post.created_at) %></small> 
 
-    <% if @post.post_id %><a href="/post/<%= @post.post_id %>">Parent</a><% end %>
-
   </h4>
 </div>
 
@@ -12,10 +10,12 @@
   <p><%= post_body %></p>
 </div>
 </article>
-<div class="post-comments">
-  <ul>
-    <% @comments.each do |comment| %>
-      <li><%= partial :_comment, :comment => comment %></li>
-    <% end %>
-  </ul>
+
+<% @params = {commenter_id: @current_user.id, commentable_type: Post, commentable_id: @post.id, post_id: @post.id} %>
+<%= partial :_post_form, :layout => false %>
+
+<div id="comments">
+  <% @post.comments.order("created_at ASC").each do |comment| %>
+    <%= partial :_comment, :layout => false, :comment => comment  %>
+  <% end %>
 </div>

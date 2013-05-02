@@ -18,7 +18,8 @@ require 'faker'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+require 'will_paginate'
+require 'will_paginate/active_record' 
 require 'erb'
 
 # Some helper constants for path-centric logic

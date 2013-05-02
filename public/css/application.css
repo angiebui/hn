@@ -18,8 +18,9 @@ h6 {
 
 
 .nav {
-  background-color: #222;
-  height: 40px;  
+  margin-top: 20px;
+  background-color: #ff6600;
+  height: 18px;  
 }
 
 #title {
@@ -32,9 +33,19 @@ h6 {
 #title h1 {
   margin: 0;
   padding: 0;
-  color: white;
-  line-height: 40px;
+  font-size: 14px;
+  line-height: 15px;
   text-transform: uppercase;
+  color: black;
+}
+
+#title *{
+  display: inline-block;
+}
+
+.nav-login {
+  height: 20px;
+  font-size: 15px;
 }
 
 .navlist{
@@ -42,8 +53,6 @@ h6 {
   float: right;
   margin: 0;
   padding: 0;
-  line-height: 40px;
-
 }
 .navlist li {
   display: inline;
@@ -62,11 +71,51 @@ h6 {
 /* Post format */
 .post-title{
   padding-bottom: 5px;
-  font-size: 1.5em;
+  font-size: 14px;
+
 }
+.post-title a {
+  text-decoration: none;
+  color: black;
+}
+
 .post-info{
-  padding-bottom: 15px;
+  font-size: 12px;
+  padding-bottom: 12px;
 }
+
+.post-info * {
+  display: inline-block;
+}
+
+
+
+/*css post form slide out animation*/
+#slideout {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#slideout_inner {
+  position: fixed;
+  top: 40px;
+  left: -400px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#slideout:hover {
+  left: 100px;
+}
+#slideout:hover #slideout_inner {
+  left: 0;
+}
+/*css post form slide out animation*/
 
 /* Profile Styling */ 
 
@@ -109,11 +158,8 @@ h6 {
 
 /* new post */
 .new-post{
-  background-color: #222;
   border-radius: 4px;
   padding: 10px 0 10px 0;
-  /*display: none;*/
-
 }
 
 .new-post-form{
@@ -135,3 +181,15 @@ h6 {
   margin: 0 auto;
   display: block;
 }
+
+
+/* comment styling below */
+.comment {
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+.comment a {
+  color: gray;
+}
+

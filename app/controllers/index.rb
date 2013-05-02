@@ -1,6 +1,12 @@
+before do 
+  @current_user = current_user
+end
+
 get '/' do
-  @posts = Post.where("post_id IS NULL")
-  @post_of_the_week = @posts.sample 
+  @posts = Post.paginate(:page => params[:page]).order('created_at DESC')
   erb :index
 end
+
+
+
 

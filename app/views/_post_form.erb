@@ -1,0 +1,10 @@
+  <div class="new-post container">
+    <form action='/reply' method="post" class="new-post-form">
+      <textarea class="form-body" rows="10" placeholder="Your Comment..." name="comment[comment]" ></textarea>
+      <input type="hidden" name="comment[commenter_id]" value="<%= @params[:commenter_id] %>">
+      <input type="hidden" name="comment[commentable_id]" value="<%= @params[:commentable_id] %>">
+      <input type="hidden" name="comment[commentable_type]" value="<%= @params[:commentable_type] %>">
+      <input type="hidden" name="redirect" value="<%= @params[:post_id] %>">
+      <input class="form-submit" type="submit" value="Add Comment" >
+    </form>
+  </div>

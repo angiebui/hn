@@ -1,5 +1,11 @@
 helpers do
 
+  def current_user
+    if session[:id]
+      @current_user ||= User.find(session[:id])
+    end
+  end
+
   def partial(template, locals = {})
     erb(template, :layout => false, :locals => locals)
   end
@@ -13,7 +19,7 @@ helpers do
   end
 
   def comment_body(comment)
-    comment.body.gsub(/\n/,"<br><br>")
+    comment.comment.gsub(/\n/,"<br><br>")
   end
 end
 

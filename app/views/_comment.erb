@@ -1,16 +1,15 @@
-<article>
-<div class="comment-header">
-  <h4><a href="/user/<%= comment.user.id %>"><%= comment.user.name %></a> <small><%= date(comment.created_at) %></small></h4>
-</div>
+<article class="comment">
+  <div class="comment-header">
+    <h4><a href="/user/<%= comment.commenter.id %>"><%= comment.commenter.name %></a> <small><%= date(comment.created_at) %></small></h4>  
+  </div>
 
-<div class="comment-body">
-  <p><%= comment_body(comment) %></p>
-</div>
+  <div class="comment-body">
+    <p><%= comment.comment %></p>
+    <a href='/reply?commentable_id=<%=comment.id%>&commentable_type=Comment&post_id=<%= @post.id %>'><p>Reply</p></a>
+  </div>
+  <% comment.comments.order("created_at ASC").each do |comment| %>
+  <%= partial :_comment, :layout => false, :comment => comment  %>
+  <% end %> 
 </article>
-<div class="comment-comments">
-  <ul>
-    <% comment.comments.each do |comment| %>
-      <li><%= partial :_comment, :comment => comment %></li>
-    <% end %>
-  </ul>
-</div>
+
+

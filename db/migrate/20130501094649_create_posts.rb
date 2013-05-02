@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.references :user
-      t.references :post
+      t.integer :postvotes_count, :default => 0
       t.timestamps
     end
   end
